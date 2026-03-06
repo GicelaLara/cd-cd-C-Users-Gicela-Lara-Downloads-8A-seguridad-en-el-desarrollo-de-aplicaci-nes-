@@ -1,0 +1,146 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+.contenedor{
+width:90%;
+height:90%;
+
+background-image: url('/fondoAzul.png');
+background-size:cover;
+background-position:center;
+
+display:flex;
+border:3px solid #1e90ff;
+border-radius:10px;
+overflow:hidden;
+}
+
+/* MENU */
+
+.menu{
+width:200px;
+background:#a6c4db;
+display:flex;
+flex-direction:column;
+align-items:center;
+padding-top:20px;
+gap:40px;
+}
+
+.logo{
+font-size:40px;
+}
+
+.opcion{
+text-align:center;
+cursor:pointer;
+}
+
+.opcion span{
+font-size:30px;
+display:block;
+}
+
+.opcion p{
+margin-top:5px;
+}
+
+.opcion.activa{
+background:#7fa9c9;
+padding:10px;
+border-radius:10px;
+}
+
+/* CONTENIDO */
+
+.contenido{
+flex:1;
+padding:20px;
+}
+
+.barra-superior{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.agregar{
+background:black;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:20px;
+cursor:pointer;
+}
+
+.buscador{
+background:white;
+padding:8px 15px;
+border-radius:20px;
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.buscador input{
+border:none;
+outline:none;
+}
+
+/* TARJETA */
+
+.tarjeta{
+background:#eeeeee;
+border-radius:15px;
+padding:20px;
+height:85%;
+overflow-y:auto;
+}
+
+.tarjeta h1{
+margin-bottom:20px;
+}
+
+.lista{
+list-style:none;
+}
+
+.lista li{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 0;
+border-bottom:1px solid #ccc;
+}
+
+/* BOTONES */
+
+.controles{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.controles button{
+border:none;
+background:#ddd;
+padding:5px 10px;
+font-size:16px;
+cursor:pointer;
+border-radius:5px;
+}
+
+.controles span{
+width:30px;
+text-align:center;
+}

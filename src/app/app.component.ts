@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { InventarioComponent } from './inventario/inventario.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [RouterOutlet, InventarioComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

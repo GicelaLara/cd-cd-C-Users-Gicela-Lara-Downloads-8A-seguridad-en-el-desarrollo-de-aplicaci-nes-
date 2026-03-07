@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -14,29 +15,33 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private http: HttpClient) {}
 
   login() {
 
-    // validar campos vacíos
     if (!this.email || !this.password) {
       alert("Todos los campos son obligatorios");
       return;
     }
 
-    // login temporal (luego será con la base de datos)
-    if (this.email === "admin@toolcenter.com" && this.password === "123456") {
+    this.http.post<any>('http://localhost/inventario_api/login.php', {
+      email: this.email,
+      password: this.password
+    }).subscribe(res => {
 
-      // guardar sesión
-      localStorage.setItem("login", "true");
-      localStorage.setItem("user", this.email);
+      if(res.success){
 
-      // ir al inventario
-      this.router.navigate(['/inventario']);
+        localStorage.setItem("login","true");
 
-    } else {
-      alert("Credenciales incorrectas");
-    }
+        this.router.navigate(['/inventario']);
+
+      } else {
+
+        alert("Credenciales incorrectas");
+
+      }
+
+    });
 
   }
 

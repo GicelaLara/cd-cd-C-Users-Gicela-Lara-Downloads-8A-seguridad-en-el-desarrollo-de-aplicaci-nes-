@@ -9,7 +9,8 @@
 
         <div class="opcion">
             <span>⬛</span>
-            <p>Categorías</p>
+            <p>Agregar producto
+            </p>
         </div>
 
         <div class="opcion activa">
@@ -17,10 +18,11 @@
             <p>Existencias</p>
         </div>
 
-        <div class="opcion cerrar">
-            <span>🚪</span>
-            <p>Cerrar sesión</p>
-        </div>
+       <div class="opcion cerrar" (click)="cerrarSesion()">
+    <span>🚪</span>
+    <p>Cerrar sesión</p>
+</div>
+        
 
     </aside>
 
@@ -48,50 +50,21 @@
 
             <ul class="lista">
 
-                <li>
-                    <span>🧱 Cemento</span>
-                    <div class="controles">
-                        <button>-</button>
-                        <span>25</span>
-                        <button>+</button>
-                    </div>
-                </li>
+               <li *ngFor="let p of productos">
 
-                <li>
-                    <span>🔩 Varilla</span>
-                    <div class="controles">
-                        <button>-</button>
-                        <span>30</span>
-                        <button>+</button>
-                    </div>
-                </li>
+<span>📦 {{p.nombre}}</span>
 
-                <li>
-                    <span>🔧 Taladros</span>
-                    <div class="controles">
-                        <button>-</button>
-                        <span>15</span>
-                        <button>+</button>
-                    </div>
-                </li>
+<div class="controles">
 
-                <li>
-                    <span>🪛 Destornilladores</span>
-                    <div class="controles">
-                        <button>-</button>
-                        <span>39</span>
-                        <button>+</button>
-                    </div>
-                </li>
+<button type="button" (click)="cambiarCantidad(p,-1)">-</button>
 
-                <li>
-                    <span>🔨 Martillos</span>
-                    <div class="controles">
-                        <button>-</button>
-                        <span>40</span>
-                        <button>+</button>
-                    </div>
-                </li>
+<span>{{p.cantidad}}</span>
+
+<button type="button" (click)="cambiarCantidad(p,1)">+</button>
+
+</div>
+
+</li>
 
             </ul>
 
